@@ -1,13 +1,28 @@
 #WordCount.py
-#Name:
-#Date:
-#Assignment:
+#Name:Scott Bassinger
+#Date:03/01/2026
+#Assignment:Lab6-WordCount
 
 def main():
-  textFile = open("gettysberg.txt", 'r')
+
+  filename = input("Enter filename: ")
+  try:
+
+    #textFile = open("gettysberg.txt", 'r')
+    textFile = open(filename, 'r')
+    content = textFile.read()
+    textFile.close()
+    
+    lines = len(content.split('\n'))
+    words = len(content.split())
+    chars = len(content)
+
+    print(f"Lines: {lines}")
+    print(f"Words: {words}")
+    print(f"Characters: {chars}")
   
-  for line in textFile:
-    print(line)
+  except FileNotFoundError:
+    print("Error:File not found")
   
 
 if __name__ == '__main__':
